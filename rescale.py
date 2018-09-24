@@ -9,7 +9,7 @@ class Rescale(object):
         im_scale = min(float(self.output_size[0]) / float(h), float(self.output_size[1]) / float(w))
         new_h = int(image_.shape[0] * im_scale)
         new_w = int(image_.shape[1] * im_scale)
-        image = cv2.resize(image_, (new_w, new_h),
+        image = cv2.resize(image_, (new_w, new_h), # <--- here
                     interpolation=cv2.INTER_LINEAR)
         left_pad = (self.output_size[1] - new_w) // 2
         right_pad = (self.output_size[1] - new_w) - left_pad
